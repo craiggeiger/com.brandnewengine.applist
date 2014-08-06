@@ -30,33 +30,9 @@ public class Applist extends CordovaPlugin {
     }
 
     private JSONArray getList() {
-        
-        /*
-        PackageManager packageMgr = ctx.getPackageManager();
-        Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        List<ResolveInfo> resolveInfos = packageMgr.queryIntentActivities(mainIntent, 0);
-
-        ArrayList<String> list  = new ArrayList<String>();
-        for (ResolveInfo resolve : resolveInfos) {
-            String packageName = resolve.activityInfo.packageName;
-            ApplicationInfo app = packageMgr.getApplicationInfo(packageName, 0);
-            //if (app.sourceDir.startsWith("/data/app/")) {
-                //Non-system app
-                //list.add( "SYSTEM: " + packageName );
-            //} else {
-                list.add(packageName);
-            //}
-        }
-        List<String> ulist = new ArrayList<String>(new HashSet<String>(list));
-        
-        return new JSONArray(ulist);
-        */
-        
-        
-
+    
         final PackageManager pm = ctx.getPackageManager();
-        //PackageManager pm = getPackageManager();
+
         //get a list of installed apps.
         List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
 
@@ -68,51 +44,11 @@ public class Applist extends CordovaPlugin {
 
             list.add(label);
 
-            //list.add(packageInfo.packageName);
-            //Log.d(TAG, "Installed package :" + packageInfo.packageName);
-
-            //list.add(packageInfo.sourceDir);
-            //Log.d(TAG, "Source dir : " + packageInfo.sourceDir);
-
-            //list.add(pm.getLaunchIntentForPackage(packageInfo.packageName));
-            //Log.d(TAG, "Launch Activity :" + pm.getLaunchIntentForPackage(packageInfo.packageName)); 
         }
 
         List<String> ulist = new ArrayList<String>(new HashSet<String>(list));
         
         return new JSONArray(ulist);
-
-
-
-        /*
-
-
-        final PackageManager pm = ctx.getPackageManager();
-        //PackageManager pm = getPackageManager();
-        //get a list of installed apps.
-        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
-
-        ArrayList<String> list  = new ArrayList<String>();
-
-        for (ApplicationInfo packageInfo : packages) {
-
-            list.add(packageInfo.packageName);
-            //Log.d(TAG, "Installed package :" + packageInfo.packageName);
-
-            //list.add(packageInfo.sourceDir);
-            //Log.d(TAG, "Source dir : " + packageInfo.sourceDir);
-
-            //list.add(pm.getLaunchIntentForPackage(packageInfo.packageName));
-            //Log.d(TAG, "Launch Activity :" + pm.getLaunchIntentForPackage(packageInfo.packageName)); 
-        }
-
-        List<String> ulist = new ArrayList<String>(new HashSet<String>(list));
-        
-        return new JSONArray(ulist);
-
-
-        */
-
 
     }
 
