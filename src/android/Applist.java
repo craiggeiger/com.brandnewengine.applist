@@ -38,7 +38,7 @@ public class Applist extends CordovaPlugin {
 
         ArrayList<String> list  = new ArrayList<String>();
         for (ResolveInfo resolve : resolveInfos) {
-            String packageName = resolve.activityInfo.name;
+            String packageName = resolve.activityInfo.packageName;
             ApplicationInfo app = packageMgr.getApplicationInfo(packageName, 0);
             //String packageName = resolve.applicationInfo.loadLabel(resolveInfos).toString();
             if (app.sourceDir.startsWith("/data/app/")) {
