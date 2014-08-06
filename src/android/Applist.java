@@ -26,7 +26,7 @@ public class Applist extends CordovaPlugin {
 
      public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
-        ctx = cordova.getActivity().getApplicationContext();
+        //ctx = cordova.getActivity().getApplicationContext();
     }
 
     private JSONArray getList() {
@@ -54,7 +54,7 @@ public class Applist extends CordovaPlugin {
         */
         
         //final PackageManager pm = ctx.getPackageManager();
-        final PackageManager pm = getPackageManager();
+        PackageManager pm = getPackageManager();
         //get a list of installed apps.
         List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
 
@@ -65,8 +65,9 @@ public class Applist extends CordovaPlugin {
 
             //list.add(packageInfo.packageName);
             //Log.d(TAG, "Installed package :" + packageInfo.packageName);
+            list(packageInfo.sourceDir)
             //Log.d(TAG, "Source dir : " + packageInfo.sourceDir);
-            list (pm.getLaunchIntentForPackage(packageInfo.packageName));
+            //list (pm.getLaunchIntentForPackage(packageInfo.packageName));
             //Log.d(TAG, "Launch Activity :" + pm.getLaunchIntentForPackage(packageInfo.packageName)); 
         }
 
