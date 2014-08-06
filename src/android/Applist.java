@@ -46,8 +46,8 @@ public class Applist extends CordovaPlugin {
         
         return new JSONArray(ulist);
         */
-        PackageManager packageMgr = cordova.getPackageManager();
-        List<PackageInfo> appsList = packageMgr.getInstalledPackages(0);
+        PackageManager packageManager = getPackageManager();
+        List<PackageInfo> appsList = packageManager.getInstalledPackages(0);
         return new JSONArray(appsList);
     }
 
