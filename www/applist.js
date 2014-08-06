@@ -1,19 +1,19 @@
-var AppinfoLoader = function (require, exports, module) {
+var ApplistLoader = function (require, exports, module) {
     var exec = require("cordova/exec");
     
     function Applist () {}
         
-    Applist.prototype.list = function (successFunc, failFunc) {
-        exec(successFunc, failFunc, "Applist","list",[]);
+    Applist.prototype.getList = function (successFunc, failFunc) {
+        exec(successFunc, failFunc, "Applist","getList",[]);
     };
     
     var appList = new Applist();
     module.exports = appList;
 };
 
-AppinfoLoader(require, exports, module);
+ApplistLoader(require, exports, module);
 
-cordova.define("cordova/plugin/Applist", AppinfoLoader);
+cordova.define("cordova/plugin/Applist", ApplistLoader);
 
 
 

@@ -27,7 +27,7 @@ public class Applist extends CordovaPlugin {
         ctx = cordova.getActivity().getApplicationContext();
     }
 
-    private JSONArray list() {
+    private JSONArray getList() {
         PackageManager packageMgr = ctx.getPackageManager();
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -54,8 +54,8 @@ public class Applist extends CordovaPlugin {
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         // list
-        if (action.equals("list")) {
-            JSONArray json = list();
+        if (action.equals("getList")) {
+            JSONArray json = getList();
             callbackContext.success(json.toString());
             
             return true;
