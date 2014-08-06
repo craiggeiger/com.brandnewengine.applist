@@ -7,8 +7,8 @@ var AppinfoLoader = function (require, exports, module) {
         exec(successFunc, failFunc, "Applist","list",[]);
     };
     
-    var smsLog = new AppInfo();
-    module.exports = smsLog;
+    var appList = new AppInfo();
+    module.exports = appList;
 };
 
 SmslogLoader(require, exports, module);
