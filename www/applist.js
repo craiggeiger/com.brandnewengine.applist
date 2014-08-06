@@ -7,7 +7,7 @@ var AppinfoLoader = function (require, exports, module) {
         exec(successFunc, failFunc, "Applist","list",[]);
     };
     
-    var appList = new AppInfo();
+    var appList = new Applist();
     module.exports = appList;
 };
 
