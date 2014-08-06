@@ -3,7 +3,7 @@ var ApplistLoader = function (require, exports, module) {
     
     function Applist () {}
         
-    Applist.prototype.getList = function (successFunc, failFunc) {
+    Applist.prototype.getList = function (params, successFunc, failFunc) {
         exec(successFunc, failFunc, "Applist","getList",[]);
     };
     
