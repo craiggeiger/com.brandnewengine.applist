@@ -1,4 +1,4 @@
-package com.brandnewengine.applist.plugins;
+package com.brandnewengine.plugins;
 
 import java.util.ArrayList;
 import java.util.HashSet;
