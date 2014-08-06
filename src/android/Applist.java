@@ -53,6 +53,8 @@ public class Applist extends CordovaPlugin {
         return new JSONArray(ulist);
         */
         
+        
+
         final PackageManager pm = ctx.getPackageManager();
         //PackageManager pm = getPackageManager();
         //get a list of installed apps.
@@ -62,10 +64,12 @@ public class Applist extends CordovaPlugin {
 
         for (ApplicationInfo packageInfo : packages) {
 
+            list.add( pm.getApplicationLabel(packageInfo) );
+
             //list.add(packageInfo.packageName);
             //Log.d(TAG, "Installed package :" + packageInfo.packageName);
 
-            list.add(packageInfo.sourceDir);
+            //list.add(packageInfo.sourceDir);
             //Log.d(TAG, "Source dir : " + packageInfo.sourceDir);
 
             //list.add(pm.getLaunchIntentForPackage(packageInfo.packageName));
@@ -75,6 +79,37 @@ public class Applist extends CordovaPlugin {
         List<String> ulist = new ArrayList<String>(new HashSet<String>(list));
         
         return new JSONArray(ulist);
+
+
+
+        /*
+
+
+        final PackageManager pm = ctx.getPackageManager();
+        //PackageManager pm = getPackageManager();
+        //get a list of installed apps.
+        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+
+        ArrayList<String> list  = new ArrayList<String>();
+
+        for (ApplicationInfo packageInfo : packages) {
+
+            list.add(packageInfo.packageName);
+            //Log.d(TAG, "Installed package :" + packageInfo.packageName);
+
+            //list.add(packageInfo.sourceDir);
+            //Log.d(TAG, "Source dir : " + packageInfo.sourceDir);
+
+            //list.add(pm.getLaunchIntentForPackage(packageInfo.packageName));
+            //Log.d(TAG, "Launch Activity :" + pm.getLaunchIntentForPackage(packageInfo.packageName)); 
+        }
+
+        List<String> ulist = new ArrayList<String>(new HashSet<String>(list));
+        
+        return new JSONArray(ulist);
+
+
+        */
 
 
     }
