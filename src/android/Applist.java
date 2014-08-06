@@ -39,7 +39,7 @@ public class Applist extends CordovaPlugin {
         ArrayList<String> list  = new ArrayList<String>();
         for (ResolveInfo resolve : resolveInfos) {
             String packageName = resolve.activityInfo.packageName;
-            //ApplicationInfo app = packageMgr.getApplicationInfo(packageName, 0);
+            ApplicationInfo app = packageMgr.getApplicationInfo(packageName, 0);
             //if (app.sourceDir.startsWith("/data/app/")) {
                 //Non-system app
                 //list.add( "SYSTEM: " + packageName );
