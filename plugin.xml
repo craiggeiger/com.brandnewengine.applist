@@ -11,7 +11,7 @@
     </engines>
 
     <js-module src="www/applist.js" name="Applist">
-        <clobbers target="cordova.plugins.applist" />
+        <clobbers target="cordova.plugins.appList" />
     </js-module>
 
     <!-- android -->
