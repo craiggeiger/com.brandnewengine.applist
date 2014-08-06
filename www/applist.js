@@ -11,7 +11,7 @@ var AppinfoLoader = function (require, exports, module) {
     module.exports = appList;
 };
 
-SmslogLoader(require, exports, module);
+AppinfoLoader(require, exports, module);
 
 cordova.define("cordova/plugin/Applist", AppinfoLoader);
 
