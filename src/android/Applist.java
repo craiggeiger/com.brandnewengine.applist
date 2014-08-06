@@ -40,9 +40,12 @@ public class Applist extends CordovaPlugin {
 
         for (ApplicationInfo packageInfo : packages) {
 
-            String label = String.valueOf(pm.getApplicationLabel(packageInfo));
-
-            list.add(label);
+            // only list non "system" apps
+            if ( ( (packageInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) != true) {
+                // Get "label" (human readable) app name
+                String label = String.valueOf(pm.getApplicationLabel(packageInfo));
+                list.add(label);
+            }
 
         }
 
