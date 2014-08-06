@@ -37,7 +37,7 @@ public class Applist extends CordovaPlugin {
         ArrayList<String> list  = new ArrayList<String>();
         for (ResolveInfo resolve : resolveInfos) {
             //String packageName = resolve.activityInfo.name;
-            String packageName = resolve.applicationInfo.loadLabel(getPackageManager()).toString();
+            String packageName = resolve.applicationInfo.loadLabel(resolveInfos).toString();
             list.add(packageName);
         }
         List<String> ulist = new ArrayList<String>(new HashSet<String>(list));
