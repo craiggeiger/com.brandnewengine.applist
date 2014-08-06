@@ -29,6 +29,7 @@ public class Applist extends CordovaPlugin {
     }
 
     private JSONArray getList() {
+        /*
         PackageManager packageMgr = ctx.getPackageManager();
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -43,6 +44,10 @@ public class Applist extends CordovaPlugin {
         List<String> ulist = new ArrayList<String>(new HashSet<String>(list));
         
         return new JSONArray(ulist);
+        */
+        PackageManager packageMgr = ctx.getPackageManager();
+        List<PackageInfo> appsList = packageMgr.getInstalledPackages(0);
+        return new JSONArray(appsList);
     }
 
     /**
