@@ -65,10 +65,10 @@ public class Applist extends CordovaPlugin {
             //list.add(packageInfo.packageName);
             //Log.d(TAG, "Installed package :" + packageInfo.packageName);
 
-            list(packageInfo.sourceDir);
+            list.add(packageInfo.sourceDir);
             //Log.d(TAG, "Source dir : " + packageInfo.sourceDir);
 
-            //list (pm.getLaunchIntentForPackage(packageInfo.packageName));
+            //list.add(pm.getLaunchIntentForPackage(packageInfo.packageName));
             //Log.d(TAG, "Launch Activity :" + pm.getLaunchIntentForPackage(packageInfo.packageName)); 
         }
 
