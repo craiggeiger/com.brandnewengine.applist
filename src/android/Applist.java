@@ -30,7 +30,7 @@ public class Applist extends CordovaPlugin {
     }
 
     private JSONArray getList() {
-        /*
+        
         PackageManager packageMgr = ctx.getPackageManager();
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -38,17 +38,25 @@ public class Applist extends CordovaPlugin {
 
         ArrayList<String> list  = new ArrayList<String>();
         for (ResolveInfo resolve : resolveInfos) {
-            //String packageName = resolve.activityInfo.name;
-            String packageName = resolve.applicationInfo.loadLabel(resolveInfos).toString();
-            list.add(packageName);
+            String packageName = resolve.activityInfo.name;
+            ApplicationInfo app = packageMgr.getApplicationInfo(packageName, 0);
+            //String packageName = resolve.applicationInfo.loadLabel(resolveInfos).toString();
+            if (app.sourceDir.startsWith("/data/app/")) {
+                //Non-system app
+                list.add( "SYSTEM: " + packageName );
+            } else {
+                list.add(packageName);
+            }
         }
         List<String> ulist = new ArrayList<String>(new HashSet<String>(list));
         
         return new JSONArray(ulist);
-        */
+        
+        /*
         PackageManager packageManager = ctx.getPackageManager();
         List<PackageInfo> appsList = packageManager.getInstalledPackages(0);
         return new JSONArray(appsList);
+        */
     }
 
     /**
