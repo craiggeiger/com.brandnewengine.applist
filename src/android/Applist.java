@@ -16,6 +16,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.pm.ApplicationInfo;
 
 @SuppressLint("HandlerLeak")
 public class Applist extends CordovaPlugin {
@@ -35,7 +36,8 @@ public class Applist extends CordovaPlugin {
 
         ArrayList<String> list  = new ArrayList<String>();
         for (ResolveInfo resolve : resolveInfos) {
-            String packageName = resolve.activityInfo.labelRes;
+            //String packageName = resolve.activityInfo.name;
+            String packageName = resolve.applicationInfo.loadLabel(getPackageManager()).toString();
             list.add(packageName);
         }
         List<String> ulist = new ArrayList<String>(new HashSet<String>(list));
