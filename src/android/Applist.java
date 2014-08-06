@@ -26,7 +26,7 @@ public class Applist extends CordovaPlugin {
 
      public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
-        //ctx = cordova.getActivity().getApplicationContext();
+        ctx = cordova.getActivity().getApplicationContext();
     }
 
     private JSONArray getList() {
