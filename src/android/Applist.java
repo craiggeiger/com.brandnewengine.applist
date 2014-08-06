@@ -15,6 +15,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageInfo;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ApplicationInfo;
 
@@ -45,8 +46,8 @@ public class Applist extends CordovaPlugin {
         
         return new JSONArray(ulist);
         */
-        PackageManager packageMgr = ctx.getPackageManager();
-        List<PackageInfo> appsList = packageMgr.getInstalledPackages(0);
+        //PackageManager packageMgr = ctx.getPackageManager();
+        List<PackageInfo> appsList = getPackageManager().getInstalledPackages(0);
         return new JSONArray(appsList);
     }
 
