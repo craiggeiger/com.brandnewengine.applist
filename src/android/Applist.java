@@ -38,14 +38,14 @@ public class Applist extends CordovaPlugin {
 
         ArrayList<String> list  = new ArrayList<String>();
         for (ResolveInfo resolve : resolveInfos) {
-            String packageName = resolve.packageInfo.packageName;
-            ApplicationInfo app = packageMgr.getApplicationInfo(packageName, 0);
-            if (app.sourceDir.startsWith("/data/app/")) {
+            String packageName = resolve.activityInfo.packageName;
+            //ApplicationInfo app = packageMgr.getApplicationInfo(packageName, 0);
+            //if (app.sourceDir.startsWith("/data/app/")) {
                 //Non-system app
-                list.add( "SYSTEM: " + packageName );
-            } else {
+                //list.add( "SYSTEM: " + packageName );
+            //} else {
                 list.add(packageName);
-            }
+            //}
         }
         List<String> ulist = new ArrayList<String>(new HashSet<String>(list));
         
