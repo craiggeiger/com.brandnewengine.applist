@@ -64,7 +64,9 @@ public class Applist extends CordovaPlugin {
 
         for (ApplicationInfo packageInfo : packages) {
 
-            list.add( pm.getApplicationLabel(packageInfo.packageName) );
+            String label = String.valueOf(pm.getApplicationLabel(packageInfo.packageName));
+
+            list.add(label);
 
             //list.add(packageInfo.packageName);
             //Log.d(TAG, "Installed package :" + packageInfo.packageName);
